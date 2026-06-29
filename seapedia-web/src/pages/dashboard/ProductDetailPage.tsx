@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import PublicLayout from '../../layout/PublicLayout'
 import { dummyProducts } from '../../data/products'
 
@@ -21,9 +21,8 @@ function ProductDetailPage() {
         <div className="text-yellow-400 mb-2">{'★'.repeat(product.rating)}</div>
         <div className="text-2xl font-bold text-orange-500 mb-4">{product.price}</div>
         <div className="text-sm text-gray-500 mb-6">Produk segar pilihan dari seller terpercaya SEAPEDIA.</div>
-        <Link to="/products" className="text-sm text-orange-500 hover:underline">← Kembali ke produk</Link>
       </div>
-    </PublicLayout>
+    </PublicLayout> 
   )
 }
 
