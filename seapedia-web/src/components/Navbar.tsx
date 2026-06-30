@@ -25,6 +25,12 @@ function Navbar() {
                             <div className="text-sm text-gray-500">
                                 {user?.name} · <span className="text-orange-500 font-medium">{user?.active_role ?? 'Pilih Role'}</span>
                             </div>
+                            {user?.active_role === 'buyer' && (
+                                <>
+                                    <Link to="/cart" className="text-sm text-gray-600 hover:text-orange-500">Keranjang</Link>
+                                    <Link to="/wallet" className="text-sm text-gray-600 hover:text-orange-500">Wallet</Link>
+                                </>
+                            )}
                             <Link to="/dashboard" className="text-sm bg-orange-50 text-orange-500 px-3 py-1 rounded-full">Dashboard</Link>
                             <div onClick={handleLogout} className="text-sm text-red-500 cursor-pointer hover:underline">Logout</div>
                         </div>

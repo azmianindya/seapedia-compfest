@@ -10,6 +10,12 @@ import BuyerDashboard from './pages/dashboard/BuyerDashboard'
 import SellerDashboard from './pages/dashboard/SellerDashboard'
 import DriverDashboard from './pages/dashboard/DriverDashboard'
 import AdminDashboard from './pages/dashboard/AdminDashboard'
+import WalletPage from './pages/buyer/WalletPage'
+import AddressPage from './pages/buyer/AddressPage'
+import CartPage from './pages/buyer/CartPage'
+import CheckoutPage from './pages/buyer/CheckoutPage'
+import OrderHistoryPage from './pages/buyer/OrderHistoryPage'
+import OrderDetailPage from './pages/buyer/OrderDetailPage'
 import { getUser } from './lib/auth'
 import { Navigate } from 'react-router-dom'
 
@@ -36,6 +42,14 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/dashboard" element={<DashboardRouter />} />
+
+        {/* Buyer routes */}
+        <Route path="/wallet" element={<WalletPage />} />
+        <Route path="/addresses" element={<AddressPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/orders" element={<OrderHistoryPage />} />
+        <Route path="/orders/:id" element={<OrderDetailPage />} />
       </Routes>
     </BrowserRouter>
   )
