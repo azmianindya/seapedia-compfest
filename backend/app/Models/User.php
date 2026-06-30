@@ -21,4 +21,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class, 'user_roles');
     }
+
+    public function store()
+    {
+        return $this->hasOne(Store::class);
+    }
 }

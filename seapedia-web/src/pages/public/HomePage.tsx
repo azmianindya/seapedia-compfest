@@ -1,9 +1,26 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PublicLayout from '../../layout/PublicLayout'
 import home from '../../assets/Home.png'
-import { dummyProducts } from '../../data/products'
+import api from '../../lib/axios'
+import { productImages } from '../../data/productImages'
 
 function HomePage() {
+  const [products, setProducts] = useState<any[]>([])
+
+  useEffect(() => {
+    api.get('/products').then(res => {
+      const all = res.data.products
+      const seenCategories = new Set<string>()
+      const featured = all.filter((p: any) => {
+        if (seenCategories.has(p.category)) return false
+        seenCategories.add(p.category)
+        return true
+      })
+      setProducts(featured)
+    })
+  }, [])
+
   return (
     <PublicLayout>
       <div className="relative rounded-2xl overflow-hidden mb-10">
@@ -19,18 +36,22 @@ function HomePage() {
       </div>
 
       <div className="mb-4 text-xl font-bold text-gray-800">Produk Unggulan</div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {dummyProducts.map(product => (
-          <Link to={`/products/${product.id}`} key={product.id} className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
-            <img src={product.image} alt={product.name} className="w-full h-36 object-cover" />
-            <div className="p-3">
-              <div className="text-xs text-orange-400 mb-1">{product.category}</div>
-              <div className="text-sm font-medium text-gray-800 mb-1">{product.name}</div>
-              <div className="text-orange-500 font-bold text-sm mb-1">{product.price}</div>
-              <div className="text-yellow-400 text-xs">{'★'.repeat(product.rating)}</div>
-            </div>
-          </Link>
-        ))}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {products.map(product => {
+          const image = productImages[product.name]
+          return (
+            <Link to={`/products/${product.id}`} key={product.id} className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+              <div className="w-full h-36 bg-gray-100 flex items-center justify-center text-4xl overflow-hidden">
+                {image ? <img src={image} alt={product.name} className="w-full h-full object-cover" /> : '🐟'}
+              </div>
+              <div className="p-3">
+                <div className="text-xs text-orange-400 mb-1">{product.category}</div>
+                <div className="text-sm font-medium text-gray-800 mb-1">{product.name}</div>
+                <div className="text-orange-500 font-bold text-sm">Rp {Number(product.price).toLocaleString('id-ID')}</div>
+              </div>
+            </Link>
+          )
+        })}
       </div>
     </PublicLayout>
   )
