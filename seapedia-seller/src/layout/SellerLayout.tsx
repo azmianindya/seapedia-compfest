@@ -18,6 +18,7 @@ function SellerLayout({ children }: { children: React.ReactNode }) {
     { label: 'Dashboard', path: '/dashboard' },
     { label: 'Toko Saya', path: '/store' },
     { label: 'Produk', path: '/products' },
+    { label: 'Pesanan', path: '/orders' },
   ]
 
   return (

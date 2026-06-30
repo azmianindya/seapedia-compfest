@@ -16,6 +16,7 @@ import CartPage from './pages/buyer/CartPage'
 import CheckoutPage from './pages/buyer/CheckoutPage'
 import OrderHistoryPage from './pages/buyer/OrderHistoryPage'
 import OrderDetailPage from './pages/buyer/OrderDetailPage'
+import ExpenseReportPage from './pages/buyer/ExpenseReportPage'
 import { getUser } from './lib/auth'
 import { Navigate } from 'react-router-dom'
 
@@ -50,6 +51,7 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/orders" element={<OrderHistoryPage />} />
         <Route path="/orders/:id" element={<OrderDetailPage />} />
+        <Route path="/expense" element={<ExpenseReportPage />} />
       </Routes>
     </BrowserRouter>
   )

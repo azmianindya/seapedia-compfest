@@ -61,7 +61,7 @@ function BuyerDashboard() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div onClick={() => navigate('/products')} className="bg-orange-500 text-white rounded-xl p-5 cursor-pointer hover:bg-orange-600 transition">
             <div className="text-sm font-medium">Mulai Belanja</div>
             <div className="text-xs opacity-80 mt-1">Jelajahi produk dari berbagai toko</div>
@@ -69,6 +69,10 @@ function BuyerDashboard() {
           <div onClick={() => navigate('/cart')} className="bg-white border border-orange-200 text-orange-500 rounded-xl p-5 cursor-pointer hover:bg-orange-50 transition">
             <div className="text-sm font-medium">Lihat Keranjang</div>
             <div className="text-xs opacity-70 mt-1">Lanjutkan checkout belanja kamu</div>
+          </div>
+          <div onClick={() => navigate('/expense')} className="bg-white border border-orange-200 text-orange-500 rounded-xl p-5 cursor-pointer hover:bg-orange-50 transition">
+            <div className="text-sm font-medium">Laporan Pengeluaran</div>
+            <div className="text-xs opacity-70 mt-1">Lihat ringkasan belanja kamu</div>
           </div>
         </div>
 

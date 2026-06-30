@@ -4,6 +4,7 @@ import SelectRolePage from './pages/auth/SelectRolePage'
 import DashboardPage from './pages/seller/dashboardPage'
 import StorePage from './pages/seller/StorePage'
 import ProductsPage from './pages/seller/Products'
+import OrdersPage from './pages/seller/OrdersPage'
 import { getUser } from './lib/auth'
 
 function DashboardRouter() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardRouter />} />
         <Route path="/store" element={<StorePage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
