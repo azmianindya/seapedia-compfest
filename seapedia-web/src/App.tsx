@@ -8,7 +8,6 @@ import ProductsPage from './pages/public/ProductsPage'
 import ProductDetailPage from './pages/public/ProductDetailPage'
 import BuyerDashboard from './pages/dashboard/BuyerDashboard'
 import SellerDashboard from './pages/dashboard/SellerDashboard'
-import DriverDashboard from './pages/dashboard/DriverDashboard'
 import AdminDashboard from './pages/dashboard/AdminDashboard'
 import WalletPage from './pages/buyer/WalletPage'
 import AddressPage from './pages/buyer/AddressPage'
@@ -26,7 +25,6 @@ function DashboardRouter() {
   if (!user.active_role) return <Navigate to="/select-role" />
   if (user.active_role === 'buyer') return <BuyerDashboard />
   if (user.active_role === 'seller') return <SellerDashboard />
-  if (user.active_role === 'driver') return <DriverDashboard />
   if (user.active_role === 'admin') return <AdminDashboard />
   return <Navigate to="/login" />
 }

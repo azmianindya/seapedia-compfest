@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'user_id', 'store_id', 'address_id',
+        'user_id', 'store_id', 'address_id', 'driver_id',
         'subtotal', 'shipping_cost', 'tax', 'discount', 'total', 'status',
+        'picked_up_at', 'delivered_at',
     ];
 
     public function items()
@@ -29,5 +30,10 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function driver()
+    {
+        return $this->belongsTo(User::class, 'driver_id');
     }
 }

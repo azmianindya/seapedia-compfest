@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DriverOrderController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
@@ -63,4 +64,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/vouchers', [VoucherController::class, 'index']);
     Route::post('/admin/vouchers', [VoucherController::class, 'store']);
     Route::delete('/admin/vouchers/{id}', [VoucherController::class, 'destroy']);
+
+    // Driver
+    Route::get('/driver/jobs/available', [DriverOrderController::class, 'available']);
+    Route::get('/driver/jobs/mine', [DriverOrderController::class, 'myJobs']);
+    Route::get('/driver/jobs/history', [DriverOrderController::class, 'history']);
+    Route::post('/driver/jobs/{id}/take', [DriverOrderController::class, 'takeJob']);
+    Route::post('/driver/jobs/{id}/complete', [DriverOrderController::class, 'completeJob']);
+    Route::get('/driver/earnings', [DriverOrderController::class, 'earnings']);
 });

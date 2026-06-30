@@ -14,12 +14,21 @@ function SellerLayout({ children }: { children: React.ReactNode }) {
     navigate('/login')
   }
 
-  const navItems = [
+  const sellerNavItems = [
     { label: 'Dashboard', path: '/dashboard' },
     { label: 'Toko Saya', path: '/store' },
     { label: 'Produk', path: '/products' },
     { label: 'Pesanan', path: '/orders' },
   ]
+
+  const driverNavItems = [
+    { label: 'Dashboard', path: '/dashboard' },
+    { label: 'Job Tersedia', path: '/driver/available' },
+    { label: 'Job Saya', path: '/driver/jobs' },
+    { label: 'Riwayat', path: '/driver/history' },
+  ]
+
+  const navItems = user?.active_role === 'driver' ? driverNavItems : sellerNavItems
 
   return (
     <div className="min-h-screen flex bg-gray-50">
@@ -59,7 +68,7 @@ function SellerLayout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         )}
-        
+
         <div className="flex-1 p-4 md:p-6">{children}</div>
       </div>
     </div>

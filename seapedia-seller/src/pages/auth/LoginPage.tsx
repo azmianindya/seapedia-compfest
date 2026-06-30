@@ -40,9 +40,11 @@ function LoginPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="bg-white rounded-2xl shadow p-8 w-full max-w-md">
-        <div className="text-xl font-bold text-orange-500 mb-1">SEAPEDIA</div>
-        <div className="text-2xl font-bold text-gray-800 mb-1">Masuk</div>
-        <div className="text-gray-500 text-sm mb-6">Masuk sebagai Seller atau Driver</div>
+        <div className="text-center mb-6">
+          <div className="text-xl font-bold text-orange-500 mb-1">SEAPEDIA</div>
+          <div className="text-2xl font-bold text-gray-800 mb-1">Masuk</div>
+          <div className="text-gray-500 text-sm">Masuk sebagai Seller atau Driver</div>
+        </div>
 
         {error && <div className="bg-red-50 text-red-500 text-sm px-4 py-2 rounded-lg mb-4">{error}</div>}
 
