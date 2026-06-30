@@ -68,7 +68,8 @@ function StorePage() {
               </div>
               <div className="text-lg font-bold text-gray-800 mb-1">{store.name}</div>
               <div className="flex items-center gap-1 text-xs text-blue-500 mb-3">
-                <span>✓</span><span>Verified Store</span>
+                <div>✓</div>
+                <div>Verified Store</div>
               </div>
               <div className="w-full text-left text-xs text-gray-500 flex flex-col gap-2">
                 <div className="flex items-center gap-2"><IoLocationOutline className="text-gray-400" />{store.address ?? '-'}</div>
